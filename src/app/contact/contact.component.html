@@ -1,0 +1,37 @@
+<br> 
+<mat-grid-list cols="6">
+  <mat-grid-tile *ngFor="let item of allContact | async">  
+    <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">
+        <img mat-card-avatar lass="example-header-image" src ={{item.Ava}}/>
+      </div>
+      <mat-card-title>{{item.FirstName}} {{item.LastName}}</mat-card-title>
+      <mat-card-subtitle>NickName: NULL</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>
+        Phone: {{item.Phone}}
+        <br>
+        <br>
+        BirthDate: {{item.BirthDay}}
+        <br>
+        <br>
+      <ng-container *ngIf="item.isBlocked; else elseTemplate">
+        <mat-slide-toggle color="primary" (click)="BanContact(item)"> Block</mat-slide-toggle>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <mat-slide-toggle (click)="BanContact(item)" checked color="primary"> Block</mat-slide-toggle>
+        </ng-template>
+       
+      </h3>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="warn" (click)="deleteContact(item.Id)">Remove</button>
+      <button mat-button routerLink="/create/{{item.Id}}" routerLinkActive="active" color="primary">Edit</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-grid-tile>
+ 
+</mat-grid-list>
+ 

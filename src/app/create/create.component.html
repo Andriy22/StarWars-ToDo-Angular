@@ -1,0 +1,50 @@
+
+  <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)"> 
+
+
+              <mat-form-field class="demo-full-width">  
+                <input formControlName="FirstName" matTooltip="Enter Worker Name" matInput placeholder="Name">  
+              </mat-form-field>  
+              <mat-error>  
+                <span *ngIf="!contactForm.get('FirstName').value && contactForm.get('FirstName').touched"></span>  
+              </mat-error>  
+
+              <mat-form-field class="demo-full-width">  
+                <input formControlName="LastName" matTooltip="Enter Last Name" matInput placeholder="Surname">  
+              </mat-form-field>  
+              <mat-error>  
+                <span *ngIf="!contactForm.get('LastName').value && contactForm.get('LastName').touched"></span>  
+              </mat-error>  
+
+
+              <mat-form-field class="demo-full-width">  
+                <input formControlName="Phone" matTooltip="Enter Contact Phone" matInput placeholder="Phone">  
+              </mat-form-field>  
+              <mat-error>  
+                <span *ngIf="!contactForm.get('Phone').value && contactForm.get('Phone').touched"></span>  
+              </mat-error>  
+
+          
+                <mat-form-field class="demo-full-width">  
+                  <input matInput [matDatepicker]="picker" formControlName="BirthDay" matTooltip="Enter Contact BirthDate"  placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="picker">
+                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                  </mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="demo-full-width">  
+                  <input formControlName="Ava" matTooltip="Enter Contact Ava path" matInput placeholder="Ava path">  
+                </mat-form-field>  
+                <mat-error>  
+                  <span *ngIf="!contactForm.get('Ava').value && contactForm.get('Ava').touched"></span>  
+                </mat-error>  
+              <button type="submit" mat-raised-button color="primary"matTooltip="Click Submit Button"[disabled]="!contactForm.valid">Submit</button>      
+              <button type="reset" mat-raised-button color="primary"matTooltip="Click Reset Button" (click)="resetForm()">Reset</button>  
+
+              <p *ngIf="dataSaved" style="color:rgb(0, 128, 0);font-size:20px;font-weight:bold" Class="success" align="left">  
+                {{message}}  
+              </p>  
+
+  </form>
+

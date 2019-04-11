@@ -1,0 +1,20 @@
+<table class="container table">
+        <thead>
+          <tr>
+            <th scope="col-1">Name</th>
+            <th scope="col-1">diameter</th>
+            <th scope="col-1">climate</th>
+            <th scope="col-1">gravity</th>
+            <th scope="col-1">population</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let item of Test ">
+           <td>{{item.name}}</td>
+           <td>{{item.diameter}}</td>
+           <td>{{item.climate}}</td>
+           <td>{{item.gravity}}</td>
+           <td>{{item.population}}</td>
+         </tr>
+        </tbody>
+</table>
